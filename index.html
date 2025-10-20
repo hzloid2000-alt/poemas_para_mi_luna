@@ -4,7 +4,6 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Poemas para mi luna</title>
-
   <style>
     :root{
       --bg:#f6efe6;
@@ -15,107 +14,128 @@
       --glass: rgba(255,255,255,0.6);
       font-family: 'Georgia', serif;
     }
+
     *{box-sizing:border-box}
-    body{margin:0;background:linear-gradient(180deg,var(--bg),#efe7d8);color:var(--text);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
-    .card{width:100%;max-width:820px;background:var(--panel);border-radius:18px;padding:28px;box-shadow:0 10px 30px rgba(22,18,12,0.12)}
+    body{
+      margin:0;
+      background:linear-gradient(180deg,var(--bg),#efe7d8);
+      color:var(--text);
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:24px;
+    }
+
+    .card{
+      width:100%;
+      max-width:820px;
+      background:var(--panel);
+      border-radius:18px;
+      padding:28px;
+      box-shadow:0 10px 30px rgba(22,18,12,0.12);
+    }
+
     header{display:flex;align-items:center;gap:16px}
-    .moon{width:68px;height:68px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#fff,#f2e7cf 40%, #edd9b8 60%);box-shadow:0 6px 14px rgba(184,134,11,0.12);border:3px solid rgba(184,134,11,0.08)}
+    .moon{
+      width:68px;height:68px;border-radius:50%;
+      background:radial-gradient(circle at 30% 30%,#fff,#f2e7cf 40%, #edd9b8 60%);
+      box-shadow:0 6px 14px rgba(184,134,11,0.12);
+      border:3px solid rgba(184,134,11,0.08)
+    }
+
     h1{font-size:28px;margin:0;color:var(--accent);letter-spacing:0.6px}
     p.lead{margin:8px 0 20px;color:var(--muted)}
 
     /* gate */
     .gate{display:grid;gap:12px;align-items:center;justify-items:center;padding:28px}
-    input[type=password]{padding:12px 14px;border-radius:10px;border:1px solid #e2d6c6;width:260px;font-size:16px}
+    input[type=password]{
+      padding:12px 14px;border-radius:10px;border:1px solid #e2d6c6;width:260px;font-size:16px
+    }
     button.btn{background:var(--accent);color:white;border:none;padding:10px 16px;border-radius:10px;cursor:pointer;font-weight:600}
     button.btn.secondary{background:transparent;border:1px solid var(--accent);color:var(--accent)}
 
-    .content{display:none;animation:fadeIn 0.8s ease both}
-    @keyframes fadeIn {
-      0% { opacity: 0; transform: translateY(20px) scale(0.98); }
-      60% { opacity: 1; transform: translateY(-3px) scale(1.01); }
-      100% { opacity: 1; transform: translateY(0) scale(1); }
-    }
+    .content{display:none;animation:fadeIn .6s ease both}
+    @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 
     .poem{margin:18px 0;padding:18px;border-radius:12px;background:linear-gradient(180deg,var(--glass),rgba(255,255,255,0.9));box-shadow:inset 0 1px 0 rgba(255,255,255,0.3)}
     .poem h3{margin:0 0 8px;font-size:18px;color:var(--accent)}
     .poem p{margin:0;white-space:pre-wrap;line-height:1.5;color:var(--text)}
 
-    audio { width: 100%; border-radius: 12px; box-shadow: 0 0 15px rgba(184,134,11,0.25); transition: box-shadow 0.6s ease; }
-    audio:hover { box-shadow: 0 0 25px rgba(184,134,11,0.45); }
+    .audio-panel{display:flex;gap:12px;align-items:center;margin-top:18px}
+    .audio-panel small{color:var(--muted)}
 
     footer{margin-top:22px;color:var(--muted);font-size:14px}
-    @media (max-width:560px){.card{padding:18px}h1{font-size:22px}}
-    @media print{ body{background:white} .card{box-shadow:none} .no-print{display:none} }
   </style>
 </head>
 
 <body>
-  <main class="card" role="main">
+  <main class="card">
     <header>
-      <div class="moon" aria-hidden="true"></div>
+      <div class="moon"></div>
       <div>
         <h1>Poemas para mi luna</h1>
         <p class="lead">Hay palabras que solo tú mereces leer</p>
       </div>
     </header>
 
-    <!-- PASSWORD GATE -->
-    <section id="gate" class="gate no-print">
+    <!-- 🔒 PANTALLA DE CONTRASEÑA -->
+    <section id="gate" class="gate">
       <p>Ingresa la contraseña para abrir mis versos.</p>
-      <input id="pw" type="password" placeholder="Contraseña" aria-label="contraseña" />
+      <input id="pw" type="password" placeholder="Contraseña" />
       <div>
         <button id="openBtn" class="btn">Abrir</button>
         <button id="hintBtn" class="btn secondary">Pista</button>
       </div>
     </section>
 
-    <!-- CONTENIDO -->
-    <section id="content" class="content" aria-hidden="true">
-      <h3 style="text-align:center; color:#b8860b; margin-top:10px;">🌙 Escucha mi voz, cada palabra late por ti 🌙</h3>
-      <audio controls>
-        <source src="poemas_audio.ogg" type="audio/ogg">
-        Tu navegador no soporta el elemento de audio.
-      </audio>
+    <!-- 📜 CONTENIDO PRINCIPAL -->
+    <section id="content" class="content">
+      <p><em>Estos versos nacieron de ti.  
+Cada palabra fue un instante,  
+cada poema, un suspiro tuyo...</em></p>
 
-      <p><em>Estos versos nacieron de ti. Cada palabra fue un instante, cada poema, un suspiro tuyo.</em></p>
-
-      <article class="poem" id="poem-a">
-        <h3>a) Mi Luna</h3>
-        <p>Te dedicaría mis últimos versos, pero no alcanzan para igualar la cantidad de besos que quiero darte...
-        </p>
+      <article class="poem">
+        <h3>Luna y suspiros</h3>
+        <p>Tu luz me toca y el alma despierta,  
+como si el cielo susurrara tu nombre...</p>
       </article>
 
-      <article class="poem" id="poem-b">
-        <h3>b) Verso</h3>
-        <p>Te dedicaría mis último versos pero no cierra con la cantidad de besos que te quiero dar...
-        </p>
-      </article>
+      <div class="audio-panel">
+        <small>🎵 Música de fondo</small>
+      </div>
 
-      <article class="poem" id="poem-c">
-        <h3>c) Estación</h3>
-        <p>Te conocí en un verano sin más, donde lo que me esperaba era una fría cerveza...
-        </p>
-      </article>
-
-      <article class="poem" id="poem-d">
-        <h3>d) Café</h3>
-        <p>Sabes, anoche soñé con un mar de estrellas...
-        </p>
-      </article>
-
-      <article class="poem" id="poem-e">
-        <h3>e) Refrescante</h3>
-        <p>Tus labios rojos me recuerdan al condimento picante...
-        </p>
-      </article>
-
-      <footer>
-        <p>Si quieres imprimir esto como recuerdo, usa la opción <strong>Imprimir</strong> de tu navegador.</p>
-      </footer>
+      <footer>Con amor, siempre tuyo 💛</footer>
     </section>
+  </main>
 
-    <div style="margin-top:16px;text-align:center" class="no-print">
-      <small>Este sitio se desbloquea con la contraseña que acordamos.</small>
-    </div>
-  </ma
+  <!-- 🎵 SCRIPT -->
+  <script>
+    const correctPassword = "030825"; // 🔑 cámbiala si quieres
+    const gate = document.getElementById("gate");
+    const content = document.getElementById("content");
+    const pwInput = document.getElementById("pw");
 
+    document.getElementById("openBtn").addEventListener("click", () => {
+      if (pwInput.value === correctPassword) {
+        gate.style.display = "none";
+        content.style.display = "block";
+        iniciarMusica();
+      } else {
+        alert("Contraseña incorrecta 💔");
+      }
+    });
+
+    document.getElementById("hintBtn").addEventListener("click", () => {
+      alert("💡 Pista: nuestra fecha especial...");
+    });
+
+    function iniciarMusica() {
+      const musica = new Audio("fondo.mp3"); // tu archivo subido
+      musica.volume = 0.05; // puedes bajarlo más si deseas (0.01 mínimo audible)
+      musica.loop = true;
+      musica.play().catch(err => console.log("Bloqueo de audio:", err));
+    }
+  </script>
+</body>
+</html>
