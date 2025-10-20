@@ -161,7 +161,10 @@ Cuando me dijiste que merecia lo mejor cual promesa al cielo, te olvidaste de me
   </main>
 
   <script>
-    // PASSWORD (user provided)
+     <script>
+    // -------------------------
+    // CONFIGURACIÓN DE CONTRASEÑA
+    // -------------------------
     const PASSWORD = '030825';
 
     const gate = document.getElementById('gate');
@@ -172,8 +175,13 @@ Cuando me dijiste que merecia lo mejor cual promesa al cielo, te olvidaste de me
 
     openBtn.addEventListener('click', tryOpen);
     pwInput.addEventListener('keyup', (e)=>{ if(e.key==='Enter') tryOpen(); });
-    hintBtn.addEventListener('click', ()=>{ alert('Pista: la contraseña es una fecha especial (formato DD/MM/AA).') });
+    hintBtn.addEventListener('click', ()=>{ 
+      alert('💛 Pista: la contraseña es una fecha especial entre nosotros.'); 
+    });
 
+    // -------------------------
+    // FUNCIÓN DE DESBLOQUEO
+    // -------------------------
     function tryOpen(){
       const val = pwInput.value.trim();
       if(val === PASSWORD){
@@ -181,45 +189,25 @@ Cuando me dijiste que merecia lo mejor cual promesa al cielo, te olvidaste de me
         content.style.display = 'block';
         content.setAttribute('aria-hidden','false');
         window.scrollTo({top:0,behavior:'smooth'});
+
+        // Iniciar música de fondo solo después del acceso
+        iniciarMusica();
       } else {
         pwInput.value='';
         pwInput.focus();
-        alert('Contraseña incorrecta. Intenta de nuevo.');
+        alert('Contraseña incorrecta 💫');
       }
     }
 
-    // Handle audio file upload locally (so you can preview/play without hosting)
-    const fileInput = document.getElementById('fileUpload');
-    const audioSrc = document.getElementById('audioSrc');
-    const audioEl = document.getElementById('poemAudio');
-
-    fileInput.addEventListener('change', (e)=>{
-      const f = e.target.files && e.target.files[0];
-      if(!f) return;
-      const url = URL.createObjectURL(f);
-      audioSrc.src = url;
-      audioEl.load();
-      audioEl.play().catch(()=>{});
-      // Informative note for printing: if you want to make this permanent, replace audio-placeholder.mp3 with a hosted URL in the source tag.
-      alert('Audio cargado localmente. Si vas a subir la página a Internet y quieres que ella lo escuche desde cualquier lugar, sube el archivo a un host público (Google Drive/Dropbox/hosting) y reemplaza audio-placeholder.mp3 en el HTML por la dirección pública del audio.');
-    });
-
+    // -------------------------
+    // MÚSICA DE FONDO
+    // -------------------------
+    function iniciarMusica() {
+      const musica = new Audio("fondo.mp3");
+      musica.volume = 0.02; // Volumen muy bajo
+      musica.loop = true;
+      musica.play().catch(err => console.log("Bloqueo de audio:", err));
+    }
   </script>
 </body>
- <script>
-  // Esperar a que el usuario haga clic o interactúe antes de reproducir
-  function iniciarMusica() {
-    const musica = new Audio("fondo.mp3"); // tu archivo subido
-    musica.volume = 0.01;
-    musica.loop = true;
-    musica.play().catch(err => console.log("Bloqueo de audio:", err));
-    // Una vez iniciada, quitamos el listener para que no se repita
-    document.removeEventListener("click", iniciarMusica);
-  }
-
-  // Cuando la página carga, esperamos el primer clic
-  window.addEventListener("load", () => {
-    document.addEventListener("click", iniciarMusica);
-  });
-</script>
 </html>
