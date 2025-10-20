@@ -172,4 +172,19 @@ Cuando me dijiste que merecia lo mejor cual promesa al cielo, te olvidaste de me
 
   </script>
 </body>
+  <script>
+  const password = prompt("Introduce la contraseña para acceder:");
+  if (password !== "030825") {
+    alert("Contraseña incorrecta. Intenta nuevamente.");
+    window.location.reload();
+  } else {
+    // Música de fondo automática
+    const musica = new Audio("fondo.mp3");
+    musica.volume = 0.4; // volumen medio
+    musica.loop = true;  // repetir infinitamente
+    musica.play().catch(() => {
+      console.log("El navegador bloqueó la reproducción automática hasta interacción.");
+    });
+  }
+</script>
 </html>
