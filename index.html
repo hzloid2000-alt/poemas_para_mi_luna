@@ -172,16 +172,20 @@ Cuando me dijiste que merecia lo mejor cual promesa al cielo, te olvidaste de me
 
   </script>
 </body>
-  <script>
-  // Música de fondo automática al abrir la página
+ <script>
+  // Esperar a que el usuario haga clic o interactúe antes de reproducir
+  function iniciarMusica() {
+    const musica = new Audio("fondo.mp3"); // tu archivo subido
+    musica.volume = 0.4;
+    musica.loop = true;
+    musica.play().catch(err => console.log("Bloqueo de audio:", err));
+    // Una vez iniciada, quitamos el listener para que no se repita
+    document.removeEventListener("click", iniciarMusica);
+  }
+
+  // Cuando la página carga, esperamos el primer clic
   window.addEventListener("load", () => {
-    const musica = new Audio("fondo.mp3"); // reemplaza por tu archivo si tiene otro nombre
-    musica.volume = 0.4; // volumen medio
-    musica.loop = true;  // repetir infinitamente
-    musica.play().catch(() => {
-      console.log("El navegador bloqueó la reproducción automática hasta interacción del usuario.");
-    });
+    document.addEventListener("click", iniciarMusica);
   });
 </script>
-
 </html>
