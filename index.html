@@ -160,53 +160,48 @@ Cuando me dijiste que merecia lo mejor cual promesa al cielo, te olvidaste de me
 
   </main>
 
-  <script>
-     <script>
-    // -------------------------
-    // CONFIGURACIÓN DE CONTRASEÑA
-    // -------------------------
-    const PASSWORD = '030825';
+    <script>
+    // CONFIGURACIÓN
+    const PASSWORD = "030825";
+    const gate = document.getElementById("gate");
+    const content = document.getElementById("content");
+    const openBtn = document.getElementById("openBtn");
+    const hintBtn = document.getElementById("hintBtn");
+    const pwInput = document.getElementById("pw");
 
-    const gate = document.getElementById('gate');
-    const content = document.getElementById('content');
-    const openBtn = document.getElementById('openBtn');
-    const hintBtn = document.getElementById('hintBtn');
-    const pwInput = document.getElementById('pw');
-
-    openBtn.addEventListener('click', tryOpen);
-    pwInput.addEventListener('keyup', (e)=>{ if(e.key==='Enter') tryOpen(); });
-    hintBtn.addEventListener('click', ()=>{ 
-      alert('💛 Pista: la contraseña es una fecha especial entre nosotros.'); 
+    openBtn.addEventListener("click", tryOpen);
+    pwInput.addEventListener("keyup", (e) => { if (e.key === "Enter") tryOpen(); });
+    hintBtn.addEventListener("click", () => {
+      alert("💛 Pista: la contraseña es una fecha especial entre nosotros.");
     });
 
-    // -------------------------
     // FUNCIÓN DE DESBLOQUEO
-    // -------------------------
-    function tryOpen(){
+    function tryOpen() {
       const val = pwInput.value.trim();
-      if(val === PASSWORD){
-        gate.style.display = 'none';
-        content.style.display = 'block';
-        content.setAttribute('aria-hidden','false');
-        window.scrollTo({top:0,behavior:'smooth'});
-
-        // Iniciar música de fondo solo después del acceso
-        iniciarMusica();
+      if (val === PASSWORD) {
+        gate.style.display = "none";
+        content.style.display = "block";
+        content.setAttribute("aria-hidden", "false");
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        reproducirMusica(); // activa el fondo musical
       } else {
-        pwInput.value='';
+        pwInput.value = "";
         pwInput.focus();
-        alert('Contraseña incorrecta 💫');
+        alert("Contraseña incorrecta 💫");
       }
     }
 
-    // -------------------------
     // MÚSICA DE FONDO
-    // -------------------------
-    function iniciarMusica() {
-      const musica = new Audio("fondo.mp3");
-      musica.volume = 0.02; // Volumen muy bajo
-      musica.loop = true;
-      musica.play().catch(err => console.log("Bloqueo de audio:", err));
+    let musica = new Audio("fondo.mp3");
+    musica.loop = true;
+    musica.volume = 0.03;
+
+    function reproducirMusica() {
+      musica.play().then(() => {
+        console.log("🎵 Música reproduciéndose...");
+      }).catch(err => {
+        console.warn("🔇 El navegador bloqueó el audio. El usuario debe hacer clic:", err);
+      });
     }
   </script>
 </body>
