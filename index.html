@@ -76,9 +76,16 @@
 
     <!-- MAIN CONTENT (hidden until password correct) -->
     <section id="content" class="content" aria-hidden="true">
-      <p><em>Estos versos nacieron de ti.
-Cada palabra fue un instante,
-cada poema, un suspiro tuyo</em></p>
+
+  <!-- AUDIO DEL POEMA (solo visible tras ingresar la contraseña) -->
+  <audio controls style="margin-top: 15px; width: 100%;">
+    <source src="poemas_audio.ogg" type="audio/ogg">
+    Tu navegador no soporta el elemento de audio.
+  </audio>
+
+  <p><em>Estos versos nacieron de ti.
+  Cada palabra fue un instante,
+  cada poema, un suspiro tuyo</em></p>
      
       <!-- POEMS -->
       <article class="poem" id="poem-a">
