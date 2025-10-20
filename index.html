@@ -4,11 +4,12 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Poemas para mi luna</title>
+
   <style>
     :root{
-      --bg:#f6efe6; /* soft beige */
+      --bg:#f6efe6;
       --panel:#fff;
-      --accent:#b8860b; /* goldenrod */
+      --accent:#b8860b;
       --muted:#7b6b5a;
       --text:#2b2b2b;
       --glass: rgba(255,255,255,0.6);
@@ -28,53 +29,32 @@
     button.btn{background:var(--accent);color:white;border:none;padding:10px 16px;border-radius:10px;cursor:pointer;font-weight:600}
     button.btn.secondary{background:transparent;border:1px solid var(--accent);color:var(--accent)}
 
-    .content{display:none;animation:fadeIn .6s ease both}
+    .content{display:none;animation:fadeIn 0.8s ease both}
     @keyframes fadeIn {
-  0% { opacity: 0; transform: translateY(20px) scale(0.98); }
-  60% { opacity: 1; transform: translateY(-3px) scale(1.01); }
-  100% { opacity: 1; transform: translateY(0) scale(1); }
-}
+      0% { opacity: 0; transform: translateY(20px) scale(0.98); }
+      60% { opacity: 1; transform: translateY(-3px) scale(1.01); }
+      100% { opacity: 1; transform: translateY(0) scale(1); }
+    }
 
     .poem{margin:18px 0;padding:18px;border-radius:12px;background:linear-gradient(180deg,var(--glass),rgba(255,255,255,0.9));box-shadow:inset 0 1px 0 rgba(255,255,255,0.3)}
     .poem h3{margin:0 0 8px;font-size:18px;color:var(--accent)}
     .poem p{margin:0;white-space:pre-wrap;line-height:1.5;color:var(--text)}
 
-    .audio-panel{display:flex;gap:12px;align-items:center;margin-top:18px}
-    audio {
-  width: 100%;
-  border-radius: 12px;
-  box-shadow: 0 0 15px rgba(184,134,11,0.25);
-  transition: box-shadow 0.6s ease;
-}
-
-audio:hover {
-  box-shadow: 0 0 25px rgba(184,134,11,0.45);
-}
-
-    .audio-panel small{color:var(--muted)}
+    audio { width: 100%; border-radius: 12px; box-shadow: 0 0 15px rgba(184,134,11,0.25); transition: box-shadow 0.6s ease; }
+    audio:hover { box-shadow: 0 0 25px rgba(184,134,11,0.45); }
 
     footer{margin-top:22px;color:var(--muted);font-size:14px}
-
-    /* responsive */
     @media (max-width:560px){.card{padding:18px}h1{font-size:22px}}
-
-    /* print-friendly */
-    @media print{
-      body{background:white}
-      .card{box-shadow:none}
-      .no-print{display:none}
-    }
+    @media print{ body{background:white} .card{box-shadow:none} .no-print{display:none} }
   </style>
 </head>
+
 <body>
   <main class="card" role="main">
     <header>
       <div class="moon" aria-hidden="true"></div>
       <div>
         <h1>Poemas para mi luna</h1>
-        
-</audio>
-
         <p class="lead">Hay palabras que solo tú mereces leer</p>
       </div>
     </header>
@@ -89,120 +69,53 @@ audio:hover {
       </div>
     </section>
 
-    <!-- MAIN CONTENT (hidden until password correct) -->
-<section id="content" class="content" aria-hidden="true">
-  <section id="content" class="content" aria-hidden="true">
+    <!-- CONTENIDO -->
+    <section id="content" class="content" aria-hidden="true">
+      <h3 style="text-align:center; color:#b8860b; margin-top:10px;">🌙 Escucha mi voz, cada palabra late por ti 🌙</h3>
+      <audio controls>
+        <source src="poemas_audio.ogg" type="audio/ogg">
+        Tu navegador no soporta el elemento de audio.
+      </audio>
 
-  <!-- AUDIO Y FRASE ROMÁNTICA -->
-  <h3 style="text-align:center; color:#b8860b; margin-top:10px;">
-    🌙 Escucha mi voz, cada palabra late por ti 🌙
-  </h3>
-  <audio controls style="margin-top: 10px; width: 100%; border: 2px solid #b8860b; border-radius: 12px; background-color: #fff8e7; box-shadow: 0 4px 12px rgba(184,134,11,0.2);">
-    <source src="poemas_audio.ogg" type="audio/ogg">
-    Tu navegador no soporta el elemento de audio.
-  </audio>
+      <p><em>Estos versos nacieron de ti. Cada palabra fue un instante, cada poema, un suspiro tuyo.</em></p>
 
-  <p><em>Estos versos nacieron de ti.
-  Cada palabra fue un instante,
-  cada poema, un suspiro tuyo</em></p>
-
-  <!-- AUDIO DEL POEMA (solo visible tras ingresar la contraseña) -->
-  <audio controls style="margin-top: 15px; width: 100%;">
-    <source src="poemas_audio.ogg" type="audio/ogg">
-    Tu navegador no soporta el elemento de audio.
-  </audio>
-
-  <p><em>Estos versos nacieron de ti.
-  Cada palabra fue un instante,
-  cada poema, un suspiro tuyo</em></p>
-     
-      <!-- POEMS -->
       <article class="poem" id="poem-a">
         <h3>a) Mi Luna</h3>
-        <p>Te dedicaría mis últimos versos, pero no alcanzan para igualar la cantidad de besos que quiero darte. Quiza estamos regidos por la crueldad del espacio, el cual nos separa sin cansancio.
-
-Pero de igual forma quiero que sepas que no habrá ni hay fuerza ni dios que me arrebate, el fuego que constantemente hace que mi corazon por ti arde.
-
-A veces me siento atrapado en un espacio inmenso de dudas, cual estrellas en el firmamento, sin saber el porque decidiste mirarme con esos ojos bellos como lunas.
-
-Cuando me dijiste que merecia lo mejor cual promesa al cielo, te olvidaste de mencionar que eso mejor eras y siempre fuiste tu mi dulce caramelo.</p>
+        <p>Te dedicaría mis últimos versos, pero no alcanzan para igualar la cantidad de besos que quiero darte...
+        </p>
       </article>
 
       <article class="poem" id="poem-b">
         <h3>b) Verso</h3>
-        <p>Te dedicaría mis ultimo versos pero no cierra con la cantidad de besos que te quiero dar mi corazón es un no parar de emociones que desbordan sin sezar. Eres lo más lindo que me pasó, el tiempo solo decidira a donde vamos a este paso, lo unico que sé es que me da igual el destino, si no es contigo. Las letras no son suficientes en este verso, ni las palabras para expresar lo que mi corazón constantemente siente cuando te veo. Así como mis prosas que jamás podran describir como de hermosa te veo cuando sonries y ries.</p>
+        <p>Te dedicaría mis último versos pero no cierra con la cantidad de besos que te quiero dar...
+        </p>
       </article>
 
       <article class="poem" id="poem-c">
         <h3>c) Estación</h3>
-        <p>Te conoci en un verano sin más donde lo que me esperaba en más era una fria cerveza mientras mientras jugaba juegos de sobremesa, pero que atino porque en un momento repentino mientras navegaba por el internet casi como si fuese obra del misterioso destino te encontre, parecias un ente pues entre bromas iluminabas el ambiente tu sonrisa era tan sorprende traias paz y tranquilidad a este pobre presente, si como tu pues considero que eres como un presente (regalo) que la vida le dio a este chico ñoño que a medida pasaba el tiempo pensaba con añoro que a nuestra conexión le iba a llegar el otoño, pero no paso y no se vio ni la llegada del invierno pudo enfriar esta conexión que nos unió, llegaba junio y la mayor crisis nos atacaba, pero lo que la vida no esperaba es que nuestra conexion reconciliaria en tiempo record, tres fueron los peores dias quien lo diria, fue como no estar despierto se sintio tu vacio y falta casi como estar muerto, pero al final todo fue nuestra mente que por esa caida todo se volvio mas fuerte más que un verano ardiente en pleno invierno con el frio potente, porque al final eres eso evidente, alguien independiente a las razones, pues mi amor por ti va mucho mas alla de las estaciones.</p>
+        <p>Te conocí en un verano sin más, donde lo que me esperaba era una fría cerveza...
+        </p>
       </article>
 
       <article class="poem" id="poem-d">
         <h3>d) Café</h3>
-        <p>Sabes anoche soñe con un mar de estrellas, cada una iluminaba cual sentella, mientras subia a un expreso en la infinidad del espacio, que cursaban tus finas curvas, cual dosis de energia de un expreso cafe me di cuenta de algo curioso mi niña bella de mejillas rojas, que tu despedida me recuerda al otoño donde caen las hojas cafés, pero sabes lo lindo, que es sentirte a mi lado aunque la prision del espacio nos torture, aunque viendote a los ojos caigo en que siempre te amare, esos ojos cafés tuyos son como el moccalate, haciendo cada que me miras de corazon este con frenesi late, recordandome cada segundo como con fé decidí querer ser el caballero de mi princesa de los ojos cafés ❤️</p>
+        <p>Sabes, anoche soñé con un mar de estrellas...
+        </p>
       </article>
 
       <article class="poem" id="poem-e">
         <h3>e) Refrescante</h3>
-        <p>Tus labios rojos me recuerdan al condimento picante, besos que dejan una sensación refrescante, eres como la sensación primaveral que incluso motiva a que las aves canten, como hadas, junto a tu sonrisa suave y delicada, pero traviesa, mi mente fantasea en la idea de como tu me besas, y aunque esa idea me perturba no paro de pensar en la hermoss curva de tus labios ❤️</p>
+        <p>Tus labios rojos me recuerdan al condimento picante...
+        </p>
       </article>
 
       <footer>
-        <p>Si quieres imprimir esto como recuerdo: usa la opción <strong>Imprimir</strong> de tu navegador. (Se ocultarán los botones de subida y la pista.)</p>
+        <p>Si quieres imprimir esto como recuerdo, usa la opción <strong>Imprimir</strong> de tu navegador.</p>
       </footer>
-
     </section>
 
     <div style="margin-top:16px;text-align:center" class="no-print">
       <small>Este sitio se desbloquea con la contraseña que acordamos.</small>
     </div>
+  </ma
 
-  </main>
-
-    <script>
-    // CONFIGURACIÓN
-    const PASSWORD = "030825";
-    const gate = document.getElementById("gate");
-    const content = document.getElementById("content");
-    const openBtn = document.getElementById("openBtn");
-    const hintBtn = document.getElementById("hintBtn");
-    const pwInput = document.getElementById("pw");
-
-    openBtn.addEventListener("click", tryOpen);
-    pwInput.addEventListener("keyup", (e) => { if (e.key === "Enter") tryOpen(); });
-    hintBtn.addEventListener("click", () => {
-      alert("💛 Pista: la contraseña es una fecha especial entre nosotros.");
-    });
-
-    // FUNCIÓN DE DESBLOQUEO
-    function tryOpen() {
-      const val = pwInput.value.trim();
-      if (val === PASSWORD) {
-        gate.style.display = "none";
-        content.style.display = "block";
-        content.setAttribute("aria-hidden", "false");
-        window.scrollTo({ top: 0, behavior: "smooth" });
-        reproducirMusica(); // activa el fondo musical
-      } else {
-        pwInput.value = "";
-        pwInput.focus();
-        alert("Contraseña incorrecta 💫");
-      }
-    }
-
-    // MÚSICA DE FONDO
-    let musica = new Audio("fondo.mp3");
-    musica.loop = true;
-    musica.volume = 0.03;
-
-    function reproducirMusica() {
-      musica.play().then(() => {
-        console.log("🎵 Música reproduciéndose...");
-      }).catch(err => {
-        console.warn("🔇 El navegador bloqueó el audio. El usuario debe hacer clic:", err);
-      });
-    }
-  </script>
-</body>
-</html>
