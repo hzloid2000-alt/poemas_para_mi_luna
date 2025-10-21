@@ -122,9 +122,18 @@
       const content = document.getElementById('content');
       if (input === '030825') {
         content.style.display = 'block';
+        startMusic(); // Inicia la música de fondo al desbloquear
       } else {
         alert('Contraseña incorrecta 💫');
       }
+    }
+
+    // 🎵 Música de fondo
+    function startMusic() {
+      const musica = new Audio("fondo.mp3"); // Asegúrate que esté en la misma carpeta que este HTML
+      musica.volume = 0.15; // volumen suave (0.0 - 1.0)
+      musica.loop = true;
+      musica.play().catch(err => console.log("Bloqueo de audio:", err));
     }
   </script>
 </body>
